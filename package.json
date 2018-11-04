@@ -1,0 +1,12 @@
+{
+    "main": "index.js",
+    "scripts": {
+        "start": "micro"
+    },
+    "dependencies": {
+        "micro": "^9.3.3",
+        "micro-query": "^0.3.0",
+        "request": "^2.88.0",
+        "request-promise": "^4.2.2"
+    }
+}
