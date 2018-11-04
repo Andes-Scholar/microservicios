@@ -1,9 +1,12 @@
 const {
     send
 } = require('micro');
+
+// AYUDA: Podrías usar url
 const {
     url
 } = require('url');
+
 let visitas = {};
 
 /**
