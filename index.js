@@ -1,4 +1,4 @@
-/** Ejemplo muy sencillo de uso de MICRO */
+/** Ejemplo muy sencillo de uso de MICRO: https://github.com/zeit/micro */
 
 const {
     send
