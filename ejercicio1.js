@@ -20,8 +20,11 @@ let visitas = {};
 
 module.exports = (request, response) => {
     let ruta = request.url;
-    //TODO
-
-    send(response, 200, `Visitaste esta pagina: ${visitas[ruta]} veces`);
-
+    if (!visitas.hasOwnProperty(ruta)) {
+        visitas[ruta] = 1;
+    } else {
+        visitas[ruta]++;
+    }
+    send(response, 200, `Visitaste la pagina "${ruta}": ${visitas[ruta]} veces`);
 }
+

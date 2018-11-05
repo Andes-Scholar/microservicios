@@ -13,11 +13,38 @@ const microBody = require('micro-body')
 
 // AYUDA: Debe usar micro-body para poder realizar el POST
 
+/*
+* @post localhost:3000
+* @body  {
+*       "operacion":"division",
+*       "operador1": 5,
+*       "operador2": 1
+*   }
+*
+*/
 module.exports = async (request, response) => {
     let resultado = 0;
-    let operacion = '';
-    //TODO
+    let body = await microBody(request)
+    let operacion = body.operacion;
 
-    return `El resultado de la operación ${info.op} es igual a ${resultado}`;
+    switch (body.operacion) {
+        case 'suma':
+            resultado = body.operador1 + body.operador2;
+            break;
+        case 'resta':
+            resultado = body.operador1 - body.operador2;
+            break;
+        case 'multiplicacion':
+            resultado = body.operador1 * body.operador2;
+            break;
+        case 'division':
+            resultado = body.operador2 === 0 ? 'error, no se puede dividir por cero!' : body.operador1 / body.operador2;
+            break;
+        default:
+            resultado = `--> La operación no está correctamente definida. Elegir: suma, resta, operacion o division`;
+            break;
+    }
+    send(response, 200, `El resultado de la operación ${body.operacion} es igual a ${resultado}`);
+    //return `El resultado de la operación ${body.operacion} es igual a ${resultado}`;
 
 }
